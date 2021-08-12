@@ -1,0 +1,14 @@
+server:  port: 5008
+  
+spring:
+  application:
+    name: API-GATEWAY  cloud:    gateway:       routes:         - id: USER-SERVICE           uri: lb://USER-SERVICE           predicates:             - Path=/api/v1/**                        
+    
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:5007/eureka/
+  instance:
+    hostname: localhost
